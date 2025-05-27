@@ -15,6 +15,8 @@ A Visual Studio Code extension to quickly find all references to a file in your 
 2. Select **Find File References** from the context menu.
 3. The search panel will open, showing all references to the file by name.
 
+[<img src="https://github.com/chitza/vscode-find-file-references/raw/main/aseets/recording.gif" width="300"/>](recording.gif)
+
 ## Release Notes
 
 ### 1.0.0
