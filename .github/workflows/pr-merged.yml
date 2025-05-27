@@ -1,0 +1,23 @@
+name: 'Trigger Publish on PR merge'
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+jobs:
+  merge_pr:
+    name: 'After PR merge'
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
+
+      - name: Trigger Publish workflow
+        if: contains(github.event.pull_request.labels.*.name, 'publish')
+        env:
+            GH_TOKEN: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
+        run: gh workflow run publish.yml
