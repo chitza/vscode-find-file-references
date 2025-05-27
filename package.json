@@ -2,7 +2,7 @@
   "name": "vscode-find-file-references",
   "displayName": "Find File References",
   "description": "Performs a search for all references to a file in the workspace.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "cristiparaschiv",
   "private": true,
   "license": "MIT",
