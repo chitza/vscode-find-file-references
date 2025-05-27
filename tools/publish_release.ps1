@@ -29,11 +29,12 @@ if ($isMain) {
 }
 
 Write-Host "Packaging extension ..."
+$baseImagesUrl = 'https://github.com/chitza/vscode-find-file-references/blob/main/'
 $outFile = "vscode-find-file-references-$newVersion.vsix"
 
 if ($isMain) {
     Write-Host "Creating release version ..."
-    vsce package --out $outFile
+    vsce package --out $outFile --baseImagesUrl "$baseImagesUrl
 
     # push the new version only if packaging was successful
     if (Test-Path $outFile) {
@@ -48,7 +49,7 @@ if ($isMain) {
     }
 } else {
     Write-Host "Creating pre-release version ..."
-    vsce package --out $outFile --pre-release
+    vsce package --out $outFile --baseImagesUrl "$baseImagesUrl --pre-release
 }
 
 if (!$isMain) {
